@@ -8,8 +8,8 @@ server:
 
 spring:
   application:
-  profiles: dev
     name: springcloud-config-dept-client
+  profiles: dev
   data:
     mongodb:
       uri: mongodb://localhost:27017/test?authSource=admin
@@ -33,8 +33,8 @@ server:
 
 spring:
   application:
-  profiles: test
     name: springcloud-config-dept-client
+  profiles: dev
   data:
     mongodb:
       uri: mongodb://localhost:27017/test2?authSource=admin
