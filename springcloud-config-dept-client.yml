@@ -3,32 +3,51 @@
     active: 
     - dev
 ---
-server: 
+server:
   port: 8001
-spring: 
-  profiles: dev
+
+spring:
   application:
-    name: springcloud-config-dept-client
+  profiles: dev
+    name: springcloud-dept
   data:
     mongodb:
       uri: mongodb://localhost:27017/test?authSource=admin
-
-eureka: 
-  client:
+eureka:
+  client: #客户端注册进eureka服务列表内
     service-url:
-      defaultZone: http://eureka-dev.com:7001/eureka/
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: springcloud-server-provider-dept-8001
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info:
+  app.name: atguigu-microservicecloud
+  company.name: www.leslie.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
 ---
-server: 
-  port: 8002
-spring: 
-  profiles: test
+server:
+  port: 8001
+
+spring:
   application:
-    name: springcloud-config-dpet-client
+  profiles: test
+    name: springcloud-dept
   data:
     mongodb:
       uri: mongodb://localhost:27017/test2?authSource=admin
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/
+  instance:
+    instance-id: springcloud-server-provider-dept-8001
+    prefer-ip-address: true     #访问路径可以显示IP地址
 
-eureka: 
-  client:
-    service-uri:
-      defaultZone: http://eureka-test.com:7001/eureka/
+info:
+  app.name: atguigu-microservicecloud
+  company.name: www.leslie.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
