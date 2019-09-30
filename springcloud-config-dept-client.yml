@@ -1,0 +1,34 @@
+﻿spring: 
+  profiles: 
+    active: 
+    - dev
+---
+server: 
+  port: 8001
+spring: 
+  profiles: dev
+  application:
+    name: springcloud-config-dept-client
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test?authSource=admin
+
+eureka: 
+  client:
+    service-url:
+      defaultZone: http://eureka-dev.com:7001/eureka/
+---
+server: 
+  port: 8002
+spring: 
+  profiles: test
+  application:
+    name: springcloud-config-dpet-client
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test?authSource=admin
+
+eureka: 
+  client:
+    service-uri:
+      defaultZone: http://eureka-test.com:7001/eureka/
