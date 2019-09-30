@@ -9,7 +9,7 @@ server:
 spring:
   application:
   profiles: dev
-    name: pringcloud-config-dept-client
+    name: springcloud-config-dept-client
   data:
     mongodb:
       uri: mongodb://localhost:27017/test?authSource=admin
@@ -34,7 +34,7 @@ server:
 spring:
   application:
   profiles: test
-    name: pringcloud-config-dept-client
+    name: springcloud-config-dept-client
   data:
     mongodb:
       uri: mongodb://localhost:27017/test2?authSource=admin
